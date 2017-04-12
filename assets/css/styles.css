@@ -1,0 +1,293 @@
+*{
+	box-sizing: border-box;
+	font-family: "Raleway", sans-serif;
+}
+
+body{
+	margin: 0;
+}
+
+.logo,
+.menu{
+	position: absolute;
+	z-index: 2000;
+}
+
+.logo{
+	left: 0;
+	margin-left: 42%;
+	top: 0px;
+	width: 70px;
+	height: 74px;
+	padding: 2.0% 8%;
+	text-align: center;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-image: url(../img/laboratoria.svg);
+}
+
+.open .logo,
+nav.solid #logo .logo{
+	background-image: url(../img/laboratoria.svg);
+	margin-left: 2%;
+  width: 30px;
+  height: 34px;
+  transition: 0.7s;
+}
+
+.logo img{
+	z-index: 2000;
+}
+
+/*Menu hamburguesa*/
+
+.menu{
+	top: 0;
+	right: 0;
+	height: 4px;
+	width: 24px;
+	text-align: right;
+	margin: 2rem 2rem;
+	background: #f7b617;
+	transition: all 0.3s;
+}
+
+.menu:before{
+  top: -8px;
+}
+
+.menu:after{
+  top: 8px;
+}
+
+#toggle:hover:before {
+  top: -9px;
+}
+
+#toggle:hover:after {
+  top: 9px;
+}
+
+.menu:before,
+.menu:after{
+  content: '';
+  width: 24px;
+  height: 4px;
+  z-index: -1;
+  display: block;
+  position: absolute;
+  background: #f7b617;
+  transition: all 0.3s;
+}
+
+#toggle:hover {
+  transition: top 0.4s;
+}
+
+.solid #toggle .menu {
+  background: #fff;
+}
+
+.solid #toggle .menu:after{
+  background-color: #fff;
+}
+
+.solid #toggle .menu:before{
+  background-color: #fff;
+}
+
+.open .menu {
+  background: none !important;
+}
+
+.open .menu:after {
+  top: 0 !important;
+  background: #fff !important;
+  transform: rotate(45deg);
+}
+
+.open .menu:before {
+  top: 0 !important;
+  background: #fff !important;
+  transform: rotate(-45deg);
+}
+
+nav{
+	top: 0;
+	left: 0;
+	width: 100%;
+	color: #fff;
+	height: 80px;
+	z-index: 1000;
+	margin-top: 0;
+	position: fixed;
+	padding-top: 0px;
+	background: #333;
+	transition: all 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
+}
+
+nav .nav-background {
+  top: 0px;
+  opacity:0;
+  width: 100%;
+  height: 100%;
+  z-index: 1500;
+  display: table;
+  background: none;
+  position: absolute;
+  transition: background-color 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
+}
+
+nav.open .nav-background {
+  opacity: 1;
+  background-color: rgba(247, 182, 23, 0.81) !important;
+  transition: background-color 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
+}
+
+nav.open {
+  height: 100%;
+  transition: none;
+  -o-transition: none;
+  -moz-transition: none;
+  -webkit-transition: none;
+}
+
+nav ul {
+  top: -10%;
+  padding: 0;
+  opacity: 0;
+  width: 100%;
+  text-align: center;
+  visibility: hidden;
+  display: table-cell;
+  vertical-align: middle;
+  transform: perspective(600px) rotateX(10deg);
+  transition: all 0.5s cubic-bezier(0.7, 0, 0.36, 0.63);
+}
+
+nav ul li{
+  visibility: hidden;
+}
+
+nav ul li a{
+  color:white;
+  width: 100%;
+  display: block;
+  padding: 8px 0 0;
+  letter-spacing: -0.06em;
+}
+
+nav ul li a:hover{
+  color:#f7b617;
+  background-color: white;
+}
+
+nav.open ul {
+  top: 0;
+  opacity: 1;
+  margin-top: 0;
+  visibility: visible;
+  transform: perspective(600px) rotateX(0deg);
+}
+
+nav.open ul li {
+  color:#fff;
+  font-size: 60px;
+  visibility: visible !important;
+}
+
+.header-in{
+	background-color: rgba(247,182,23,0.81);
+}
+
+/*  Sección para muestra de coders */
+
+h2{
+	color: #333;
+	padding: 20px;
+	font-size: 30px;
+	margin: 20px auto;
+}
+
+#container-coders{
+	text-align: center;
+	top: 80px;
+	width: 100%;
+	overflow: auto;
+	padding: 0 90px;
+	position: relative;
+}
+
+#coders{
+	display: inline-block;
+	padding-bottom: 120px;
+}
+
+#coders .coder {
+	display: inline-block;
+	margin: 0;
+	left: 0;
+	width: 350px;
+	height: 400px;
+}
+
+#coders div{
+	position: relative;
+	display: inline-block;
+	width: 33.3%;
+	height: 350px;
+	overflow: hidden;
+	justify-content: center;
+}
+
+div .coder figcaption{
+  color: #fff;
+  font-size: 45px ;
+  background: #f7b617;
+  height: 402px;
+  width: 100%;
+  padding: 130px 100px;
+  cursor: pointer;
+  z-index: 0;
+}
+
+div .coder img,
+div .coder figcaption{
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: all 0.5s;
+	width: 100%;
+}
+
+div .coder img{
+	height: 400px;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;;
+	z-index: 1;
+}
+
+div .coder img:hover {
+  opacity: 0.3;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+div .coder figcaption:hover {
+  opacity: 0.99;
+  cursor: pointer;
+}
+
+footer {
+  background: #333;
+  height: 66px;
+  text-align: right;
+  width: 100%;
+}
+footer > h3 {
+  left: 89%;
+  font-size: 21px;
+  padding-top: 20px;
+  padding-right: 5px;
+}
